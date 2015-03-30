@@ -84,6 +84,10 @@ def next_prime_number(prime_number):
             break
     return next_number
 
+###
+# A method used to get the next prime number after getting a user input, this will continuously call next_prime_number
+# till the user enters 'n'
+###
 def get_prime_number():
     currentPrime = 1
     while True:
