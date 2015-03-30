@@ -1,5 +1,5 @@
 from math import pow, factorial
-
+__author__ = 'edwardvella'
 
 ###
 #Find PI to the Nth Digit - Enter a number and have the program generate PI up to that many decimal places.
@@ -119,9 +119,10 @@ def get_cost_of_tile():
     print 'The total cost of the floor plan is ' + str(find_cost_of_tile(width, height, cost))
 
 
-print find_pi_to_the_nth_digit(10)
-print find_e_to_the_nth_digit(10)
-print fibonacci_sequence(19)
-print prime_factorization(21)
-get_prime_number()
-get_cost_of_tile()
+###
+# Mortgage Calculator - Calculate the monthly payments of a fixed term mortgage over given Nth terms at a given
+# interest rate. Also figure out how long it will take the user to pay back the loan. For added complexity,
+# add an option for users to select the compounding interval (Monthly, Weekly, Daily, Continually).
+###
+def calculate_mortgage():
+    None
