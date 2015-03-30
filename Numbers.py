@@ -57,7 +57,47 @@ def prime_factorization(n):
     return factors
 
 
+
+###
+#Determines whether a number is a prime number.
+###
+def is_prime_number(n):
+    if n <= 3:
+        return n >= 2
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    for i in range(5, int(n ** 0.5) + 1, 6):
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+    return True
+
+###
+#Next Prime Number - Have the program find prime numbers until the user chooses to stop asking for the next one.
+###
+def next_prime_number(prime_number):
+    next_number = prime_number + 1
+
+    while True:
+        if not is_prime_number(next_number):
+            next_number += 1
+        else:
+            break
+    return next_number
+
+def get_prime_number():
+    currentPrime = 1
+    while True:
+        answer = raw_input('Would you like to see the next prime? (Y/N) ')
+
+        if answer.lower().startswith('y'):
+            print currentPrime
+            currentPrime = next_prime_number(currentPrime)
+        else:
+            break
+
+
 print find_pi_to_the_nth_digit(10)
 print find_e_to_the_nth_digit(10)
 print fibonacci_sequence(19)
 print prime_factorization(21)
+get_prime_number()
