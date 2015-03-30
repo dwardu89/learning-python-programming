@@ -85,7 +85,7 @@ def next_prime_number(prime_number):
     return next_number
 
 ###
-# A method used to get the next prime number after getting a user input, this will continuously call next_prime_number
+# A function used to get the next prime number after getting a user input, this will continuously call next_prime_number
 # till the user enters 'n'
 ###
 def get_prime_number():
@@ -100,8 +100,28 @@ def get_prime_number():
             break
 
 
+###
+# Find Cost of Tile to Cover W x H Floor -
+# Calculate the total cost of tile it would take to cover a floor plan of width and height,
+# using a cost entered by the user.
+###
+def find_cost_of_tile(w, h, cost):
+    return w * h * cost
+
+
+###
+# A function used to get the cost, width and height of a plan and return the cost
+###
+def get_cost_of_tile():
+    width = float(raw_input('What is the width of the floor plan? '))
+    height = float(raw_input('What is the height of the floor plan? '))
+    cost = float(raw_input('What is the cost of a single tile? '))
+    print 'The total cost of the floor plan is ' + str(find_cost_of_tile(width, height, cost))
+
+
 print find_pi_to_the_nth_digit(10)
 print find_e_to_the_nth_digit(10)
 print fibonacci_sequence(19)
 print prime_factorization(21)
 get_prime_number()
+get_cost_of_tile()
