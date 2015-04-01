@@ -6,3 +6,8 @@ python:
 install: "pip install -r requirements.txt"
 # command to run tests
 script: nosetests
+# command to notify builds
+notifications:
+  email:
+    on_success: [change] # default: change
+    on_failure: [always] # default: always
