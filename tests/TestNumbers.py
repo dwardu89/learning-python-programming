@@ -10,7 +10,7 @@ class TestNumbers(unittest.TestCase):
 
     def test_find_mortgage_cost_after(self):
         from Numbers import calculate_mortgage
-        self.assertEqual(float(1360435.51), round(calculate_mortgage(6.5, 30 * 12, 200000, 30),2))
+        self.assertEqual(float(1360435.51), round(calculate_mortgage(6.5, 30 * 12, 200000, 30), 2))
 
 if __name__ == '__main__':
     unittest.main()
