@@ -2,8 +2,8 @@ from math import pow, factorial
 __author__ = 'edwardvella'
 
 ###
-#Find PI to the Nth Digit - Enter a number and have the program generate PI up to that many decimal places.
-#Keep a limit to how far the program will go.
+# Find PI to the Nth Digit - Enter a number and have the program generate PI up to that many decimal places.
+# Keep a limit to how far the program will go.
 ###
 def find_pi_to_the_nth_digit(n):
     '''
@@ -176,7 +176,6 @@ def get_cost_of_tile():
 #   Amount owed at end of month N = (1 + r)^N*P - __(1+r)^N_-1__ * c
 #                                                        r
 ###
-
 def calculate_mortgage(monthly_rate, monthly_payments, amount_borrowed, months_in_payment):
     '''
     Calculates the amount owed by a mortgage by the end of the month.
@@ -193,4 +192,42 @@ def calculate_mortgage(monthly_rate, monthly_payments, amount_borrowed, months_i
     amount_owed = (pow(1 + rate, monthly_payments) * amount_borrowed) - months_in_payment * c
     return amount_owed
 
-print calculate_mortgage(6.5, 30 * 12, 200000, 30)
+
+####
+# Change Return Program - The user enters a cost and then the amount of money given.
+# The program will figure out the change and the number of 1 Pound coins, 50 p coins, 10 p coins, 5 p coins, 2 p coins
+# and 1 p coins needed for the change.
+####
+def calculate_change(total_cost, money_paid):
+    '''
+    Calculates the change returned when more money is paid, it also prints change given in coins, and if there is less
+    money given, the amount required to pay is shown.
+    :param total_cost: the total cost to be paid
+    :param money_paid: the amount paid
+    :return: None
+    '''
+    from math import floor
+    change = money_paid - total_cost
+    if change > 0:
+        print str(floor(change / 1)) + ' 1 GBP Coins'
+        change -= floor(change / 1) * 1
+
+        print str(floor(change / 0.5)) + ' 50p Coins'
+        change -= floor(change / 0.5) * 0.5
+
+        print str(floor(change / 0.1)) + ' 10p Coins'
+        change -= floor(change / 0.1) * 0.1
+
+        print str(floor(change / 0.05)) + ' 5p Coins'
+        change -= floor(change / 0.05) * 0.05
+
+        print str(floor(change / 0.02)) + ' 2p Coins'
+        change -= floor(change / 0.02) * 0.02
+
+        print str(floor(change / 0.01)) + ' 1p Coins'
+        change -= floor(change / 0.01) * 0.01
+    else:
+        print str(change) + ' GBP is still owed'
+
+
+calculate_change(10.27, 3)
