@@ -1,4 +1,2 @@
 # Python Programming Lessons ![Travis Build Status] (https://travis-ci.org/dwardu89/learning-python-programming.svg?branch=master)
-A repository dedicated to learning python by using ideas from [this repository] (https://github.com/karan/Projects).
-
-
+A repository dedicated to learning python by using ideas from [this repository] (https://github.com/karan/Projects) as well as using algorithms learnt from the book [Introduction to Algorithms] (http://www.amazon.co.uk/Introduction-Algorithms-Thomas-H-Cormen/dp/0262033844) by Cormen et al.

@@ -229,5 +229,3 @@ def calculate_change(total_cost, money_paid):
     else:
         print str(change) + ' GBP is still owed'
 
-
-calculate_change(10.27, 3)
