@@ -15,7 +15,7 @@ def bubble_sort(arr):
                 #swap the items
                 temp = arr[i]
                 arr[i] = arr[i + 1]
-                arr[i + 1]  = temp
+                arr[i + 1] = temp
                 swaps = True
     return arr
 
@@ -33,3 +33,7 @@ def heap_sort(arr):
         heap.heap_size -= 1
         heap.max_heapify(0)
     return heap.A
+
+array = [4, 1, 3, 2, 16, 9, 10, 14, 8, 7]
+target_array = [1, 2, 3, 4, 7, 8, 9, 10, 14, 16]
+heap_sort(array)

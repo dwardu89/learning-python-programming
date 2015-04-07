@@ -37,14 +37,84 @@ class Heap:
         self.A[i] = self.A[j]
         self.A[j] = temp
 
+    def maximum(self):
+        return self.A[0]
+
+    def extract_heap_max(self):
+        """
+        Extracts the maximum heap value and removes it from the heap
+        :return: the maximum heap value or raises the heap underflow exception
+        """
+        if self.heap_size < 1:
+            # Heap Underflow exception
+            raise HeapUnderflowException("Heap Underflow")
+        maximum = self.A[0]
+        self.A[0] = self.A[self.heap_size]
+        self.heap_size -= 1
+        self.max_heapify(0)
+        return maximum
+
+    def increase_heap_key(self, i, key):
+        """
+        Increases the heap key
+        :param i: the current index
+        :param key: the key
+        :return: None, raises KeyException if error
+        """
+        if key < self.A[i]:
+            raise KeyException("New Key is smaller than the current key")
+        self.A[i] = key
+        while i > 0 and self.A[parent(i)] < self.A[i]:
+            self.swap(i, parent(i))
+            i = parent(i)
+
+    def max_heap_insert(self, key):
+        self.heap_size += 1
+        # Since there is no representation of the minimum integer, use the value of a googol * -1
+        self.A[self.heap_size] = 10**100 * -1
+        self.increase_heap_key(self.heap_size, key)
+
 
 def parent(i):
+    '''
+    Gets the parent index
+    :param i: the current index
+    :return: the parent index
+    '''
     return i / 2
 
 
 def left(i):
+    '''
+    Gets the child on the left of an index
+    :param i: the current index
+    :return: the index of the left child
+    '''
     return 2 * i
 
 
 def right(i):
+    '''
+    Gets the child on the right of an index
+    :param i: the current index
+    :return: the index of the right child
+    '''
     return 2 * i + 1
+
+
+class HeapUnderflowException(Exception):
+
+    def __init__(self, value):
+        self.value = value
+
+    def __str__(self):
+        return repr(self.value)
+
+
+class KeyException(Exception):
+
+    def __init__(self, value):
+        self.value = value
+
+    def __str__(self):
+        return repr(self.value)
