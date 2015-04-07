@@ -19,7 +19,17 @@ def bubble_sort(arr):
                 swaps = True
     return arr
 
-array = range(1,11)[::-1]
 
-print array
-print bubble_sort(array)
+def heap_sort(arr):
+    '''
+    Performs a heap sort algorithm
+    :param arr: an unsorted array
+    :return: a sorted array
+    '''
+    from HeapSorting import Heap
+    heap = Heap(arr)
+    for i in range(0, len(arr))[::-1]:
+        heap.swap(0, i)
+        heap.heap_size -= 1
+        heap.max_heapify(0)
+    return heap.A
