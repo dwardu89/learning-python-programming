@@ -34,6 +34,14 @@ def heap_sort(arr):
         heap.max_heapify(0)
     return heap.A
 
+def quick_sorting(arr):
+
+    from  QuickSorting import QuickSort
+    quicksort = QuickSort(arr)
+    quicksort.quicksort(0, len(arr)-1)
+    print quicksort.A
+
+
 array = [4, 1, 3, 2, 16, 9, 10, 14, 8, 7]
 target_array = [1, 2, 3, 4, 7, 8, 9, 10, 14, 16]
-heap_sort(array)
+quick_sorting(array)
