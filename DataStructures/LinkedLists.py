@@ -50,7 +50,7 @@ class Node:
         """
         return self.right is None
 
-    def set_right(self, node):
+    def set_next(self, node):
         """
         Sets the right side of the current node
         :param node: the node to set for the right side of the current node
@@ -58,7 +58,7 @@ class Node:
         """
         self.right = node
 
-    def set_left(self, node):
+    def set_previous(self, node):
         """
         Sets the left side of the current node
         :param node: the node to set for the left side of the current node
@@ -79,7 +79,7 @@ class LinkedList:
             current_node = self.head
             while current_node.has_next_node():
                 current_node = current_node.next_node()
-                current_node.set_right(Node(value))
+                current_node.set_next(Node(value))
 
     def print_values(self):
         current_node = self.head
@@ -89,6 +89,30 @@ class LinkedList:
 
     def get_tail(self):
         current_node = self.head
-        while current_node.get_right() is not None:
-            current_node = current_node.get_right()
+        while current_node.has_next_node():
+            current_node = current_node.next_node()
         return current_node
+
+    def search_for_value(self, value):
+        current_node = self.head
+        while current_node is not None and current_node.get_value() != value:
+            current_node = current_node.next_node()
+        return current_node
+
+    def get_position_for_value(self, value):
+        index = 0
+        current_node = self.head
+        while current_node is not None and current_node.get_value() != value:
+            current_node = current_node.next_node()
+            index += 1
+        if current_node is not None:
+            return -1
+        return current_node
+
+    def delete_node(self, node):
+        if node.previous_node() is not None:
+            node.previous_node().set_next(node.next_node())
+        else:
+            self.head = node.next_node()
+        if node.has_next_node():
+            node.next_node().set_previous(node.previous_node())
