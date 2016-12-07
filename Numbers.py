@@ -1,16 +1,18 @@
 from math import pow, factorial
+
 __author__ = 'edwardvella'
+
 
 ###
 # Find PI to the Nth Digit - Enter a number and have the program generate PI up to that many decimal places.
 # Keep a limit to how far the program will go.
 ###
 def find_pi_to_the_nth_digit(n):
-    '''
+    """
     Finds pi to the Nth digit
     :param n: the Nth digit to compute to
     :return: pi to the Nth digit
-    '''
+    """
     result = 0.0
     for k in range(0, n):
         a = float(1) / pow(16, k)
@@ -23,16 +25,16 @@ def find_pi_to_the_nth_digit(n):
 
 
 ###
-#Find e to the Nth Digit - Just like the previous problem, but with e instead of PI.
-#Enter a number and have the program generate e up to that many decimal places.
-#Keep a limit to how far the program will go.
+# Find e to the Nth Digit - Just like the previous problem, but with e instead of PI.
+# Enter a number and have the program generate e up to that many decimal places.
+# Keep a limit to how far the program will go.
 ###
 def find_e_to_the_nth_digit(x):
-    '''
+    """
     Finds the exponential digit to the nth digit
     :param x: the Nth digit to compute to
     :return: the result to the Nth digit
-    '''
+    """
     result = 0.0
     for n in range(0, x):
         result += pow(x, n) / factorial(n)
@@ -40,15 +42,15 @@ def find_e_to_the_nth_digit(x):
 
 
 ###
-#Fibonacci Sequence -
-#Enter a number and have the program generate the Fibonacci sequence to that number or to the Nth number.
+# Fibonacci Sequence -
+# Enter a number and have the program generate the Fibonacci sequence to that number or to the Nth number.
 ###
 def fibonacci_sequence(n):
-    '''
+    """
     Calculates a fibonacci sequence
     :param n: the Nth number
     :return: the fibonacci sequence to the number
-    '''
+    """
     result = 0
     if n < 2:
         return n
@@ -56,14 +58,14 @@ def fibonacci_sequence(n):
 
 
 ###
-#Prime Factorization - Have the user enter a number and find all Prime Factors (if there are any) and display them.
+# Prime Factorization - Have the user enter a number and find all Prime Factors (if there are any) and display them.
 ###
 def prime_factorization(n):
-    '''
+    """
     Finds all the prime factors of a number
     :param n: the number
     :return: a list of prime factors
-    '''
+    """
     i = 2
     factors = []
     while i * i <= n:
@@ -77,16 +79,15 @@ def prime_factorization(n):
     return factors
 
 
-
 ###
-#Determines whether a number is a prime number.
+# Determines whether a number is a prime number.
 ###
 def is_prime_number(n):
-    '''
+    """
     Determines whether a given number is a prime number
     :param n:
     :return: True if prime number, False if not a prime number
-    '''
+    """
     if n <= 3:
         return n >= 2
     if n % 2 == 0 or n % 3 == 0:
@@ -96,15 +97,16 @@ def is_prime_number(n):
             return False
     return True
 
+
 ###
-#Next Prime Number - Have the program find prime numbers until the user chooses to stop asking for the next one.
+# Next Prime Number - Have the program find prime numbers until the user chooses to stop asking for the next one.
 ###
 def next_prime_number(prime_number):
-    '''
+    """
     Calculates the next prime number preceding the current prime number
     :param prime_number: the current prime number
     :return: the next prime number
-    '''
+    """
     next_number = prime_number + 1
 
     while True:
@@ -114,15 +116,16 @@ def next_prime_number(prime_number):
             break
     return next_number
 
+
 ###
 # A function used to get the next prime number after getting a user input, this will continuously call next_prime_number
 # till the user enters 'n'
 ###
 def get_prime_number():
-    '''
+    """
     Loops and prints a prime number until the user stops requesting a prime number.
     :return:
-    '''
+    """
     currentPrime = 1
     while True:
         answer = raw_input('Would you like to see the next prime? (Y/N) ')
@@ -147,10 +150,10 @@ def find_cost_of_tile(w, h, cost):
 # A function used to get the cost, width and height of a plan and return the cost
 ###
 def get_cost_of_tile():
-    '''
+    """
     Calculates the cost of the tile
     :return: None
-    '''
+    """
     width = float(raw_input('What is the width of the floor plan? '))
     height = float(raw_input('What is the height of the floor plan? '))
     cost = float(raw_input('What is the cost of a single tile? '))
@@ -177,13 +180,13 @@ def get_cost_of_tile():
 #                                                        r
 ###
 def calculate_mortgage(monthly_rate, monthly_payments, amount_borrowed, months_in_payment):
-    '''
+    """
     Calculates the amount owed by a mortgage by the end of the month.
     :param monthly_rate: the monthly interest rate, expressed as a float.
     :param monthly_payments: the number of monthly payments
     :param amount_borrowed: the amount borrowed
     :return: the amount owed after N months
-    '''
+    """
 
     rate = float(monthly_rate) / 12 / 100
 
@@ -199,13 +202,13 @@ def calculate_mortgage(monthly_rate, monthly_payments, amount_borrowed, months_i
 # and 1 p coins needed for the change.
 ####
 def calculate_change(total_cost, money_paid):
-    '''
+    """
     Calculates the change returned when more money is paid, it also prints change given in coins, and if there is less
     money given, the amount required to pay is shown.
     :param total_cost: the total cost to be paid
     :param money_paid: the amount paid
     :return: None
-    '''
+    """
     from math import floor
     change = money_paid - total_cost
     if change > 0:
@@ -228,4 +231,3 @@ def calculate_change(total_cost, money_paid):
         change -= floor(change / 0.01) * 0.01
     else:
         print str(change) + ' GBP is still owed'
-

@@ -1,12 +1,11 @@
 __author__ = 'edwardvella'
 
 
-class Heap:
-    '''
-    This class is used for the heap sorting algorithm found in Sorting.py
+class HeapSorting:
+    """
+    This class is used for the heap sorting algorithm found in Sorter.py
     which is defined by the function name heap_sort().
-    '''
-    A = None
+    """
     heap_size = None
 
     def __init__(self, A):
@@ -71,39 +70,38 @@ class Heap:
     def max_heap_insert(self, key):
         self.heap_size += 1
         # Since there is no representation of the minimum integer, use the value of a googol * -1
-        self.A[self.heap_size] = 10**100 * -1
+        self.A[self.heap_size] = 10 ** 100 * -1
         self.increase_heap_key(self.heap_size, key)
 
 
 def parent(i):
-    '''
+    """
     Gets the parent index
     :param i: the current index
     :return: the parent index
-    '''
+    """
     return i / 2
 
 
 def left(i):
-    '''
+    """
     Gets the child on the left of an index
     :param i: the current index
     :return: the index of the left child
-    '''
+    """
     return 2 * i
 
 
 def right(i):
-    '''
+    """
     Gets the child on the right of an index
     :param i: the current index
     :return: the index of the right child
-    '''
+    """
     return 2 * i + 1
 
 
 class HeapUnderflowException(Exception):
-
     def __init__(self, value):
         self.value = value
 
@@ -112,7 +110,6 @@ class HeapUnderflowException(Exception):
 
 
 class KeyException(Exception):
-
     def __init__(self, value):
         self.value = value
 
