@@ -84,8 +84,8 @@ class LinkedList:
     def print_values(self):
         current_node = self.head
         while current_node is not None:
-            print current_node.get_value()
-            current_node = current_node.get_right()
+            print current_node.value()
+            current_node = current_node.right()
 
     def get_tail(self):
         current_node = self.head
@@ -95,14 +95,14 @@ class LinkedList:
 
     def search_for_value(self, value):
         current_node = self.head
-        while current_node is not None and current_node.get_value() != value:
+        while current_node is not None and current_node.value() != value:
             current_node = current_node.next_node()
         return current_node
 
     def get_position_for_value(self, value):
         index = 0
         current_node = self.head
-        while current_node is not None and current_node.get_value() != value:
+        while current_node is not None and current_node.value() != value:
             current_node = current_node.next_node()
             index += 1
         if current_node is not None:
